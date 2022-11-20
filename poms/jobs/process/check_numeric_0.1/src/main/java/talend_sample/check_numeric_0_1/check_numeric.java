@@ -324,7 +324,55 @@ public class check_numeric implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFileInputDelimited_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tSchemaComplianceCheck_2_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tLogRow_3_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tLogRow_4_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_2_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tFileInputDelimited_2_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
@@ -346,12 +394,6 @@ public class check_numeric implements TalendJob {
 
 		public BigDecimal getNewColumn() {
 			return this.newColumn;
-		}
-
-		public String expectations;
-
-		public String getExpectations() {
-			return this.expectations;
 		}
 
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
@@ -396,66 +438,6 @@ public class check_numeric implements TalendJob {
 			}
 		}
 
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALEND_SAMPLE_check_numeric.length) {
-					if (length < 1024 && commonByteArray_TALEND_SAMPLE_check_numeric.length == 0) {
-						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[1024];
-					} else {
-						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length);
-				strReturn = new String(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALEND_SAMPLE_check_numeric.length) {
-					if (length < 1024 && commonByteArray_TALEND_SAMPLE_check_numeric.length == 0) {
-						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[1024];
-					} else {
-						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length);
-				strReturn = new String(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_TALEND_SAMPLE_check_numeric) {
@@ -467,8 +449,6 @@ public class check_numeric implements TalendJob {
 					this.no = readInteger(dis);
 
 					this.newColumn = (BigDecimal) dis.readObject();
-
-					this.expectations = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -494,8 +474,6 @@ public class check_numeric implements TalendJob {
 
 					this.newColumn = (BigDecimal) dis.readObject();
 
-					this.expectations = readString(dis);
-
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -519,10 +497,6 @@ public class check_numeric implements TalendJob {
 
 				dos.writeObject(this.newColumn);
 
-				// String
-
-				writeString(this.expectations, dos);
-
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -540,10 +514,6 @@ public class check_numeric implements TalendJob {
 
 				dos.writeObject(this.newColumn);
 
-				// String
-
-				writeString(this.expectations, dos);
-
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -557,7 +527,6 @@ public class check_numeric implements TalendJob {
 			sb.append("[");
 			sb.append("no=" + String.valueOf(no));
 			sb.append(",newColumn=" + String.valueOf(newColumn));
-			sb.append(",expectations=" + expectations);
 			sb.append("]");
 
 			return sb.toString();
@@ -610,12 +579,6 @@ public class check_numeric implements TalendJob {
 
 		public BigDecimal getNewColumn() {
 			return this.newColumn;
-		}
-
-		public String expectations;
-
-		public String getExpectations() {
-			return this.expectations;
 		}
 
 		public String errorCode;
@@ -744,8 +707,6 @@ public class check_numeric implements TalendJob {
 
 					this.newColumn = (BigDecimal) dis.readObject();
 
-					this.expectations = readString(dis);
-
 					this.errorCode = readString(dis);
 
 					this.errorMessage = readString(dis);
@@ -773,8 +734,6 @@ public class check_numeric implements TalendJob {
 					this.no = readInteger(dis);
 
 					this.newColumn = (BigDecimal) dis.readObject();
-
-					this.expectations = readString(dis);
 
 					this.errorCode = readString(dis);
 
@@ -805,10 +764,6 @@ public class check_numeric implements TalendJob {
 
 				// String
 
-				writeString(this.expectations, dos);
-
-				// String
-
 				writeString(this.errorCode, dos);
 
 				// String
@@ -834,10 +789,6 @@ public class check_numeric implements TalendJob {
 
 				// String
 
-				writeString(this.expectations, dos);
-
-				// String
-
 				writeString(this.errorCode, dos);
 
 				// String
@@ -857,7 +808,6 @@ public class check_numeric implements TalendJob {
 			sb.append("[");
 			sb.append("no=" + String.valueOf(no));
 			sb.append(",newColumn=" + String.valueOf(newColumn));
-			sb.append(",expectations=" + expectations);
 			sb.append(",errorCode=" + errorCode);
 			sb.append(",errorMessage=" + errorMessage);
 			sb.append("]");
@@ -914,12 +864,6 @@ public class check_numeric implements TalendJob {
 			return this.newColumn;
 		}
 
-		public String expectations;
-
-		public String getExpectations() {
-			return this.expectations;
-		}
-
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
@@ -962,66 +906,6 @@ public class check_numeric implements TalendJob {
 			}
 		}
 
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALEND_SAMPLE_check_numeric.length) {
-					if (length < 1024 && commonByteArray_TALEND_SAMPLE_check_numeric.length == 0) {
-						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[1024];
-					} else {
-						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length);
-				strReturn = new String(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALEND_SAMPLE_check_numeric.length) {
-					if (length < 1024 && commonByteArray_TALEND_SAMPLE_check_numeric.length == 0) {
-						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[1024];
-					} else {
-						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length);
-				strReturn = new String(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
 		public void readData(ObjectInputStream dis) {
 
 			synchronized (commonByteArrayLock_TALEND_SAMPLE_check_numeric) {
@@ -1033,8 +917,6 @@ public class check_numeric implements TalendJob {
 					this.no = readInteger(dis);
 
 					this.newColumn = (BigDecimal) dis.readObject();
-
-					this.expectations = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1060,8 +942,6 @@ public class check_numeric implements TalendJob {
 
 					this.newColumn = (BigDecimal) dis.readObject();
 
-					this.expectations = readString(dis);
-
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 
@@ -1085,10 +965,6 @@ public class check_numeric implements TalendJob {
 
 				dos.writeObject(this.newColumn);
 
-				// String
-
-				writeString(this.expectations, dos);
-
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -1106,10 +982,6 @@ public class check_numeric implements TalendJob {
 
 				dos.writeObject(this.newColumn);
 
-				// String
-
-				writeString(this.expectations, dos);
-
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -1123,7 +995,6 @@ public class check_numeric implements TalendJob {
 			sb.append("[");
 			sb.append("no=" + String.valueOf(no));
 			sb.append(",newColumn=" + String.valueOf(newColumn));
-			sb.append(",expectations=" + expectations);
 			sb.append("]");
 
 			return sb.toString();
@@ -1215,11 +1086,11 @@ public class check_numeric implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[3];
+					int[] colLengths = new int[2];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 3; i++) {
+						for (int i = 0; i < 2; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -1246,11 +1117,11 @@ public class check_numeric implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 2 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 1 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 2 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 1 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -1270,10 +1141,6 @@ public class check_numeric implements TalendJob {
 
 							sbformat.append("|%2$-");
 							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -1299,13 +1166,8 @@ public class check_numeric implements TalendJob {
 						}
 						sb.append(fillChars[3]);
 
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
 						// last column
-						for (int i = 0; i < colLengths[2] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[1] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -1321,7 +1183,7 @@ public class check_numeric implements TalendJob {
 				}
 				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
 				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "no", "newColumn", "expectations", });
+				util_tLogRow_1.addRow(new String[] { "no", "newColumn", });
 				StringBuilder strBuffer_tLogRow_1 = null;
 				int nb_line_tLogRow_1 = 0;
 ///////////////////////    			
@@ -1359,11 +1221,11 @@ public class check_numeric implements TalendJob {
 
 					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
 
-					int[] colLengths = new int[5];
+					int[] colLengths = new int[4];
 
 					public void addRow(String[] row) {
 
-						for (int i = 0; i < 5; i++) {
+						for (int i = 0; i < 4; i++) {
 							if (row[i] != null) {
 								colLengths[i] = Math.max(colLengths[i], row[i].length());
 							}
@@ -1390,11 +1252,11 @@ public class check_numeric implements TalendJob {
 						// name
 						sb.append("|");
 						int k = 0;
-						for (k = 0; k < (totals + 4 - name.length()) / 2; k++) {
+						for (k = 0; k < (totals + 3 - name.length()) / 2; k++) {
 							sb.append(' ');
 						}
 						sb.append(name);
-						for (int i = 0; i < totals + 4 - name.length() - k; i++) {
+						for (int i = 0; i < totals + 3 - name.length() - k; i++) {
 							sb.append(' ');
 						}
 						sb.append("|\n");
@@ -1422,10 +1284,6 @@ public class check_numeric implements TalendJob {
 
 							sbformat.append("|%4$-");
 							sbformat.append(colLengths[3]);
-							sbformat.append("s");
-
-							sbformat.append("|%5$-");
-							sbformat.append(colLengths[4]);
 							sbformat.append("s");
 
 							sbformat.append("|\n");
@@ -1459,13 +1317,9 @@ public class check_numeric implements TalendJob {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[3] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
 
 						// last column
-						for (int i = 0; i < colLengths[4] - fillChars[1].length() + 1; i++) {
+						for (int i = 0; i < colLengths[3] - fillChars[1].length() + 1; i++) {
 							sb.append(fillChars[2]);
 						}
 						sb.append(fillChars[1]);
@@ -1481,7 +1335,7 @@ public class check_numeric implements TalendJob {
 				}
 				Util_tLogRow_2 util_tLogRow_2 = new Util_tLogRow_2();
 				util_tLogRow_2.setTableName("tLogRow_2");
-				util_tLogRow_2.addRow(new String[] { "no", "newColumn", "expectations", "errorCode", "errorMessage", });
+				util_tLogRow_2.addRow(new String[] { "no", "newColumn", "errorCode", "errorMessage", });
 				StringBuilder strBuffer_tLogRow_2 = null;
 				int nb_line_tLogRow_2 = 0;
 ///////////////////////    			
@@ -1607,21 +1461,6 @@ public class check_numeric implements TalendJob {
 						resultErrorMessageThrough = handleErrorMessage(errorMessageThrough, resultErrorMessageThrough,
 								"newColumn:");
 						errorMessageThrough = "";
-						try {
-							if (row1.expectations != null && (!"".equals(row1.expectations))) {
-								String tester_tSchemaComplianceCheck_1 = String.valueOf(row1.expectations);
-							}
-						} catch (java.lang.Exception e) {
-							globalMap.put("tSchemaComplianceCheck_1_ERROR_MESSAGE", e.getMessage());
-							ifPassedThrough = false;
-							errorCodeThrough += 2;
-							errorMessageThrough += "|wrong type";
-						}
-						resultErrorCodeThrough = handleErrorCode(errorCodeThrough, resultErrorCodeThrough);
-						errorCodeThrough = 0;
-						resultErrorMessageThrough = handleErrorMessage(errorMessageThrough, resultErrorMessageThrough,
-								"expectations:");
-						errorMessageThrough = "";
 					}
 				}
 				RowSetValueUtil_tSchemaComplianceCheck_1 rsvUtil_tSchemaComplianceCheck_1 = new RowSetValueUtil_tSchemaComplianceCheck_1();
@@ -1648,7 +1487,7 @@ public class check_numeric implements TalendJob {
 				int limit_tFileInputDelimited_1 = -1;
 				try {
 
-					Object filename_tFileInputDelimited_1 = "/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric1.csv";
+					Object filename_tFileInputDelimited_1 = "/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric/bigdecimal.csv";
 					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
 						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
@@ -1660,7 +1499,7 @@ public class check_numeric implements TalendJob {
 					}
 					try {
 						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric1.csv",
+								"/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric/bigdecimal.csv",
 								"ISO-8859-15", ",", "\n", true, 0, 0, limit_tFileInputDelimited_1, -1, false);
 					} catch (java.lang.Exception e) {
 						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
@@ -1729,10 +1568,6 @@ public class check_numeric implements TalendJob {
 
 							}
 
-							columnIndexWithD_tFileInputDelimited_1 = 2;
-
-							row1.expectations = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
-
 							if (rowstate_tFileInputDelimited_1.getException() != null) {
 								throw rowstate_tFileInputDelimited_1.getException();
 							}
@@ -1796,13 +1631,11 @@ public class check_numeric implements TalendJob {
 								row2 = new row2Struct();
 								row2.no = row1.no;
 								row2.newColumn = row1.newColumn;
-								row2.expectations = row1.expectations;
 							}
 							if (!rsvUtil_tSchemaComplianceCheck_1.ifPassedThrough) {
 								row3 = new row3Struct();
 								row3.no = row1.no;
 								row3.newColumn = row1.newColumn;
-								row3.expectations = row1.expectations;
 								row3.errorCode = String
 										.valueOf(rsvUtil_tSchemaComplianceCheck_1.resultErrorCodeThrough);
 								row3.errorMessage = rsvUtil_tSchemaComplianceCheck_1.resultErrorMessageThrough;
@@ -1843,7 +1676,7 @@ public class check_numeric implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_1 = new String[3];
+								String[] row_tLogRow_1 = new String[2];
 
 								if (row2.no != null) { //
 									row_tLogRow_1[0] = String.valueOf(row2.no);
@@ -1853,11 +1686,6 @@ public class check_numeric implements TalendJob {
 								if (row2.newColumn != null) { //
 									row_tLogRow_1[1] = row2.newColumn.setScale(1, java.math.RoundingMode.HALF_UP)
 											.toPlainString();
-
-								} //
-
-								if (row2.expectations != null) { //
-									row_tLogRow_1[2] = String.valueOf(row2.expectations);
 
 								} //
 
@@ -1916,7 +1744,7 @@ public class check_numeric implements TalendJob {
 
 ///////////////////////		
 
-								String[] row_tLogRow_2 = new String[5];
+								String[] row_tLogRow_2 = new String[4];
 
 								if (row3.no != null) { //
 									row_tLogRow_2[0] = String.valueOf(row3.no);
@@ -1929,18 +1757,13 @@ public class check_numeric implements TalendJob {
 
 								} //
 
-								if (row3.expectations != null) { //
-									row_tLogRow_2[2] = String.valueOf(row3.expectations);
-
-								} //
-
 								if (row3.errorCode != null) { //
-									row_tLogRow_2[3] = String.valueOf(row3.errorCode);
+									row_tLogRow_2[2] = String.valueOf(row3.errorCode);
 
 								} //
 
 								if (row3.errorMessage != null) { //
-									row_tLogRow_2[4] = String.valueOf(row3.errorMessage);
+									row_tLogRow_2[3] = String.valueOf(row3.errorMessage);
 
 								} //
 
@@ -2010,7 +1833,7 @@ public class check_numeric implements TalendJob {
 
 					}
 				} finally {
-					if (!((Object) ("/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric1.csv") instanceof java.io.InputStream)) {
+					if (!((Object) ("/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric/bigdecimal.csv") instanceof java.io.InputStream)) {
 						if (fid_tFileInputDelimited_1 != null) {
 							fid_tFileInputDelimited_1.close();
 						}
@@ -2178,6 +2001,1601 @@ public class check_numeric implements TalendJob {
 		}
 
 		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
+	}
+
+	public static class row5Struct implements routines.system.IPersistableRow<row5Struct> {
+		final static byte[] commonByteArrayLock_TALEND_SAMPLE_check_numeric = new byte[0];
+		static byte[] commonByteArray_TALEND_SAMPLE_check_numeric = new byte[0];
+
+		public Integer no;
+
+		public Integer getNo() {
+			return this.no;
+		}
+
+		public int newColumn;
+
+		public int getNewColumn() {
+			return this.newColumn;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TALEND_SAMPLE_check_numeric) {
+
+				try {
+
+					int length = 0;
+
+					this.no = readInteger(dis);
+
+					this.newColumn = dis.readInt();
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_TALEND_SAMPLE_check_numeric) {
+
+				try {
+
+					int length = 0;
+
+					this.no = readInteger(dis);
+
+					this.newColumn = dis.readInt();
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.no, dos);
+
+				// int
+
+				dos.writeInt(this.newColumn);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.no, dos);
+
+				// int
+
+				dos.writeInt(this.newColumn);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("no=" + String.valueOf(no));
+			sb.append(",newColumn=" + String.valueOf(newColumn));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row5Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row6Struct implements routines.system.IPersistableRow<row6Struct> {
+		final static byte[] commonByteArrayLock_TALEND_SAMPLE_check_numeric = new byte[0];
+		static byte[] commonByteArray_TALEND_SAMPLE_check_numeric = new byte[0];
+
+		public Integer no;
+
+		public Integer getNo() {
+			return this.no;
+		}
+
+		public int newColumn;
+
+		public int getNewColumn() {
+			return this.newColumn;
+		}
+
+		public String errorCode;
+
+		public String getErrorCode() {
+			return this.errorCode;
+		}
+
+		public String errorMessage;
+
+		public String getErrorMessage() {
+			return this.errorMessage;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TALEND_SAMPLE_check_numeric.length) {
+					if (length < 1024 && commonByteArray_TALEND_SAMPLE_check_numeric.length == 0) {
+						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[1024];
+					} else {
+						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length);
+				strReturn = new String(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TALEND_SAMPLE_check_numeric.length) {
+					if (length < 1024 && commonByteArray_TALEND_SAMPLE_check_numeric.length == 0) {
+						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[1024];
+					} else {
+						commonByteArray_TALEND_SAMPLE_check_numeric = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length);
+				strReturn = new String(commonByteArray_TALEND_SAMPLE_check_numeric, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TALEND_SAMPLE_check_numeric) {
+
+				try {
+
+					int length = 0;
+
+					this.no = readInteger(dis);
+
+					this.newColumn = dis.readInt();
+
+					this.errorCode = readString(dis);
+
+					this.errorMessage = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_TALEND_SAMPLE_check_numeric) {
+
+				try {
+
+					int length = 0;
+
+					this.no = readInteger(dis);
+
+					this.newColumn = dis.readInt();
+
+					this.errorCode = readString(dis);
+
+					this.errorMessage = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.no, dos);
+
+				// int
+
+				dos.writeInt(this.newColumn);
+
+				// String
+
+				writeString(this.errorCode, dos);
+
+				// String
+
+				writeString(this.errorMessage, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.no, dos);
+
+				// int
+
+				dos.writeInt(this.newColumn);
+
+				// String
+
+				writeString(this.errorCode, dos);
+
+				// String
+
+				writeString(this.errorMessage, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("no=" + String.valueOf(no));
+			sb.append(",newColumn=" + String.valueOf(newColumn));
+			sb.append(",errorCode=" + errorCode);
+			sb.append(",errorMessage=" + errorMessage);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row6Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row4Struct implements routines.system.IPersistableRow<row4Struct> {
+		final static byte[] commonByteArrayLock_TALEND_SAMPLE_check_numeric = new byte[0];
+		static byte[] commonByteArray_TALEND_SAMPLE_check_numeric = new byte[0];
+
+		public Integer no;
+
+		public Integer getNo() {
+			return this.no;
+		}
+
+		public int newColumn;
+
+		public int getNewColumn() {
+			return this.newColumn;
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TALEND_SAMPLE_check_numeric) {
+
+				try {
+
+					int length = 0;
+
+					this.no = readInteger(dis);
+
+					this.newColumn = dis.readInt();
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_TALEND_SAMPLE_check_numeric) {
+
+				try {
+
+					int length = 0;
+
+					this.no = readInteger(dis);
+
+					this.newColumn = dis.readInt();
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.no, dos);
+
+				// int
+
+				dos.writeInt(this.newColumn);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.no, dos);
+
+				// int
+
+				dos.writeInt(this.newColumn);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("no=" + String.valueOf(no));
+			sb.append(",newColumn=" + String.valueOf(newColumn));
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row4Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputDelimited_2Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				row4Struct row4 = new row4Struct();
+				row5Struct row5 = new row5Struct();
+				row6Struct row6 = new row6Struct();
+
+				/**
+				 * [tLogRow_3 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_3", false);
+				start_Hash.put("tLogRow_3", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_3";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row5");
+				}
+
+				int tos_count_tLogRow_3 = 0;
+
+				///////////////////////
+
+				class Util_tLogRow_3 {
+
+					String[] des_top = { ".", ".", "-", "+" };
+
+					String[] des_head = { "|=", "=|", "-", "+" };
+
+					String[] des_bottom = { "'", "'", "-", "+" };
+
+					String name = "";
+
+					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+					int[] colLengths = new int[2];
+
+					public void addRow(String[] row) {
+
+						for (int i = 0; i < 2; i++) {
+							if (row[i] != null) {
+								colLengths[i] = Math.max(colLengths[i], row[i].length());
+							}
+						}
+						list.add(row);
+					}
+
+					public void setTableName(String name) {
+
+						this.name = name;
+					}
+
+					public StringBuilder format() {
+
+						StringBuilder sb = new StringBuilder();
+
+						sb.append(print(des_top));
+
+						int totals = 0;
+						for (int i = 0; i < colLengths.length; i++) {
+							totals = totals + colLengths[i];
+						}
+
+						// name
+						sb.append("|");
+						int k = 0;
+						for (k = 0; k < (totals + 1 - name.length()) / 2; k++) {
+							sb.append(' ');
+						}
+						sb.append(name);
+						for (int i = 0; i < totals + 1 - name.length() - k; i++) {
+							sb.append(' ');
+						}
+						sb.append("|\n");
+
+						// head and rows
+						sb.append(print(des_head));
+						for (int i = 0; i < list.size(); i++) {
+
+							String[] row = list.get(i);
+
+							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
+
+							StringBuilder sbformat = new StringBuilder();
+							sbformat.append("|%1$-");
+							sbformat.append(colLengths[0]);
+							sbformat.append("s");
+
+							sbformat.append("|%2$-");
+							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|\n");
+
+							formatter.format(sbformat.toString(), (Object[]) row);
+
+							sb.append(formatter.toString());
+							if (i == 0)
+								sb.append(print(des_head)); // print the head
+						}
+
+						// end
+						sb.append(print(des_bottom));
+						return sb;
+					}
+
+					private StringBuilder print(String[] fillChars) {
+						StringBuilder sb = new StringBuilder();
+						// first column
+						sb.append(fillChars[0]);
+						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						// last column
+						for (int i = 0; i < colLengths[1] - fillChars[1].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[1]);
+						sb.append("\n");
+						return sb;
+					}
+
+					public boolean isTableEmpty() {
+						if (list.size() > 1)
+							return false;
+						return true;
+					}
+				}
+				Util_tLogRow_3 util_tLogRow_3 = new Util_tLogRow_3();
+				util_tLogRow_3.setTableName("tLogRow_3");
+				util_tLogRow_3.addRow(new String[] { "no", "newColumn", });
+				StringBuilder strBuffer_tLogRow_3 = null;
+				int nb_line_tLogRow_3 = 0;
+///////////////////////    			
+
+				/**
+				 * [tLogRow_3 begin ] stop
+				 */
+
+				/**
+				 * [tLogRow_4 begin ] start
+				 */
+
+				ok_Hash.put("tLogRow_4", false);
+				start_Hash.put("tLogRow_4", System.currentTimeMillis());
+
+				currentComponent = "tLogRow_4";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row6");
+				}
+
+				int tos_count_tLogRow_4 = 0;
+
+				///////////////////////
+
+				class Util_tLogRow_4 {
+
+					String[] des_top = { ".", ".", "-", "+" };
+
+					String[] des_head = { "|=", "=|", "-", "+" };
+
+					String[] des_bottom = { "'", "'", "-", "+" };
+
+					String name = "";
+
+					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+					int[] colLengths = new int[4];
+
+					public void addRow(String[] row) {
+
+						for (int i = 0; i < 4; i++) {
+							if (row[i] != null) {
+								colLengths[i] = Math.max(colLengths[i], row[i].length());
+							}
+						}
+						list.add(row);
+					}
+
+					public void setTableName(String name) {
+
+						this.name = name;
+					}
+
+					public StringBuilder format() {
+
+						StringBuilder sb = new StringBuilder();
+
+						sb.append(print(des_top));
+
+						int totals = 0;
+						for (int i = 0; i < colLengths.length; i++) {
+							totals = totals + colLengths[i];
+						}
+
+						// name
+						sb.append("|");
+						int k = 0;
+						for (k = 0; k < (totals + 3 - name.length()) / 2; k++) {
+							sb.append(' ');
+						}
+						sb.append(name);
+						for (int i = 0; i < totals + 3 - name.length() - k; i++) {
+							sb.append(' ');
+						}
+						sb.append("|\n");
+
+						// head and rows
+						sb.append(print(des_head));
+						for (int i = 0; i < list.size(); i++) {
+
+							String[] row = list.get(i);
+
+							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
+
+							StringBuilder sbformat = new StringBuilder();
+							sbformat.append("|%1$-");
+							sbformat.append(colLengths[0]);
+							sbformat.append("s");
+
+							sbformat.append("|%2$-");
+							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|%3$-");
+							sbformat.append(colLengths[2]);
+							sbformat.append("s");
+
+							sbformat.append("|%4$-");
+							sbformat.append(colLengths[3]);
+							sbformat.append("s");
+
+							sbformat.append("|\n");
+
+							formatter.format(sbformat.toString(), (Object[]) row);
+
+							sb.append(formatter.toString());
+							if (i == 0)
+								sb.append(print(des_head)); // print the head
+						}
+
+						// end
+						sb.append(print(des_bottom));
+						return sb;
+					}
+
+					private StringBuilder print(String[] fillChars) {
+						StringBuilder sb = new StringBuilder();
+						// first column
+						sb.append(fillChars[0]);
+						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[2] - fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						// last column
+						for (int i = 0; i < colLengths[3] - fillChars[1].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[1]);
+						sb.append("\n");
+						return sb;
+					}
+
+					public boolean isTableEmpty() {
+						if (list.size() > 1)
+							return false;
+						return true;
+					}
+				}
+				Util_tLogRow_4 util_tLogRow_4 = new Util_tLogRow_4();
+				util_tLogRow_4.setTableName("tLogRow_4");
+				util_tLogRow_4.addRow(new String[] { "no", "newColumn", "errorCode", "errorMessage", });
+				StringBuilder strBuffer_tLogRow_4 = null;
+				int nb_line_tLogRow_4 = 0;
+///////////////////////    			
+
+				/**
+				 * [tLogRow_4 begin ] stop
+				 */
+
+				/**
+				 * [tSchemaComplianceCheck_2 begin ] start
+				 */
+
+				ok_Hash.put("tSchemaComplianceCheck_2", false);
+				start_Hash.put("tSchemaComplianceCheck_2", System.currentTimeMillis());
+
+				currentComponent = "tSchemaComplianceCheck_2";
+
+				if (execStat) {
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row4");
+				}
+
+				int tos_count_tSchemaComplianceCheck_2 = 0;
+
+				class RowSetValueUtil_tSchemaComplianceCheck_2 {
+
+					boolean ifPassedThrough = true;
+					int errorCodeThrough = 0;
+					String errorMessageThrough = "";
+					int resultErrorCodeThrough = 0;
+					String resultErrorMessageThrough = "";
+					String tmpContentThrough = null;
+
+					boolean ifPassed = true;
+					int errorCode = 0;
+					String errorMessage = "";
+
+					void handleBigdecimalPrecision(String data, int iPrecision, int maxLength) {
+						// number of digits before the decimal point(ignoring frontend zeroes)
+						int len1 = 0;
+						int len2 = 0;
+						ifPassed = true;
+						errorCode = 0;
+						errorMessage = "";
+						if (data.startsWith("-")) {
+							data = data.substring(1);
+						}
+						data = org.apache.commons.lang.StringUtils.stripStart(data, "0");
+
+						if (data.indexOf(".") >= 0) {
+							len1 = data.indexOf(".");
+							data = org.apache.commons.lang.StringUtils.stripEnd(data, "0");
+							len2 = data.length() - (len1 + 1);
+						} else {
+							len1 = data.length();
+						}
+
+						if (iPrecision < len2) {
+							ifPassed = false;
+							errorCode += 8;
+							errorMessage += "|precision Non-matches";
+						} else if (maxLength < len1 + iPrecision) {
+							ifPassed = false;
+							errorCode += 8;
+							errorMessage += "|invalid Length setting is unsuitable for Precision";
+						}
+					}
+
+					int handleErrorCode(int errorCode, int resultErrorCode) {
+						if (errorCode > 0) {
+							if (resultErrorCode > 0) {
+								resultErrorCode = 16;
+							} else {
+								resultErrorCode = errorCode;
+							}
+						}
+						return resultErrorCode;
+					}
+
+					String handleErrorMessage(String errorMessage, String resultErrorMessage, String columnLabel) {
+						if (errorMessage.length() > 0) {
+							if (resultErrorMessage.length() > 0) {
+								resultErrorMessage += ";" + errorMessage.replaceFirst("\\|", columnLabel);
+							} else {
+								resultErrorMessage = errorMessage.replaceFirst("\\|", columnLabel);
+							}
+						}
+						return resultErrorMessage;
+					}
+
+					void reset() {
+						ifPassedThrough = true;
+						errorCodeThrough = 0;
+						errorMessageThrough = "";
+						resultErrorCodeThrough = 0;
+						resultErrorMessageThrough = "";
+						tmpContentThrough = null;
+
+						ifPassed = true;
+						errorCode = 0;
+						errorMessage = "";
+					}
+
+					void setRowValue_0(row4Struct row4) {
+						resultErrorCodeThrough = handleErrorCode(errorCodeThrough, resultErrorCodeThrough);
+						errorCodeThrough = 0;
+						resultErrorMessageThrough = handleErrorMessage(errorMessageThrough, resultErrorMessageThrough,
+								"no:");
+						errorMessageThrough = "";
+						if (true) {
+							tmpContentThrough = String.valueOf(row4.newColumn);
+
+							if (tmpContentThrough.length() > 3) {
+								ifPassedThrough = false;
+								errorCodeThrough += 8;
+								errorMessageThrough += "|exceed max length";
+							}
+						}
+						resultErrorCodeThrough = handleErrorCode(errorCodeThrough, resultErrorCodeThrough);
+						errorCodeThrough = 0;
+						resultErrorMessageThrough = handleErrorMessage(errorMessageThrough, resultErrorMessageThrough,
+								"newColumn:");
+						errorMessageThrough = "";
+					}
+				}
+				RowSetValueUtil_tSchemaComplianceCheck_2 rsvUtil_tSchemaComplianceCheck_2 = new RowSetValueUtil_tSchemaComplianceCheck_2();
+
+				/**
+				 * [tSchemaComplianceCheck_2 begin ] stop
+				 */
+
+				/**
+				 * [tFileInputDelimited_2 begin ] start
+				 */
+
+				ok_Hash.put("tFileInputDelimited_2", false);
+				start_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+
+				currentComponent = "tFileInputDelimited_2";
+
+				int tos_count_tFileInputDelimited_2 = 0;
+
+				final routines.system.RowState rowstate_tFileInputDelimited_2 = new routines.system.RowState();
+
+				int nb_line_tFileInputDelimited_2 = 0;
+				org.talend.fileprocess.FileInputDelimited fid_tFileInputDelimited_2 = null;
+				int limit_tFileInputDelimited_2 = -1;
+				try {
+
+					Object filename_tFileInputDelimited_2 = "/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric/int.csv";
+					if (filename_tFileInputDelimited_2 instanceof java.io.InputStream) {
+
+						int footer_value_tFileInputDelimited_2 = 0, random_value_tFileInputDelimited_2 = -1;
+						if (footer_value_tFileInputDelimited_2 > 0 || random_value_tFileInputDelimited_2 > 0) {
+							throw new java.lang.Exception(
+									"When the input source is a stream,footer and random shouldn't be bigger than 0.");
+						}
+
+					}
+					try {
+						fid_tFileInputDelimited_2 = new org.talend.fileprocess.FileInputDelimited(
+								"/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric/int.csv",
+								"ISO-8859-15", ",", "\n", true, 0, 0, limit_tFileInputDelimited_2, -1, false);
+					} catch (java.lang.Exception e) {
+						globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+
+						System.err.println(e.getMessage());
+
+					}
+
+					while (fid_tFileInputDelimited_2 != null && fid_tFileInputDelimited_2.nextRecord()) {
+						rowstate_tFileInputDelimited_2.reset();
+
+						row4 = null;
+
+						boolean whetherReject_tFileInputDelimited_2 = false;
+						row4 = new row4Struct();
+						try {
+
+							int columnIndexWithD_tFileInputDelimited_2 = 0;
+
+							String temp = "";
+
+							columnIndexWithD_tFileInputDelimited_2 = 0;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row4.no = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"no", "row4", temp, ex_tFileInputDelimited_2), ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								row4.no = null;
+
+							}
+
+							columnIndexWithD_tFileInputDelimited_2 = 1;
+
+							temp = fid_tFileInputDelimited_2.get(columnIndexWithD_tFileInputDelimited_2);
+							if (temp.length() > 0) {
+
+								try {
+
+									row4.newColumn = ParserUtils.parseTo_int(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_2) {
+									globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE",
+											ex_tFileInputDelimited_2.getMessage());
+									rowstate_tFileInputDelimited_2.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"newColumn", "row4", temp, ex_tFileInputDelimited_2),
+											ex_tFileInputDelimited_2));
+								}
+
+							} else {
+
+								rowstate_tFileInputDelimited_2.setException(new RuntimeException(
+										"Value is empty for column : 'newColumn' in 'row4' connection, value is invalid or this column should be nullable or have a default value."));
+
+							}
+
+							if (rowstate_tFileInputDelimited_2.getException() != null) {
+								throw rowstate_tFileInputDelimited_2.getException();
+							}
+
+						} catch (java.lang.Exception e) {
+							globalMap.put("tFileInputDelimited_2_ERROR_MESSAGE", e.getMessage());
+							whetherReject_tFileInputDelimited_2 = true;
+
+							System.err.println(e.getMessage());
+							row4 = null;
+
+						}
+
+						/**
+						 * [tFileInputDelimited_2 begin ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 main ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						tos_count_tFileInputDelimited_2++;
+
+						/**
+						 * [tFileInputDelimited_2 main ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 process_data_begin ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						/**
+						 * [tFileInputDelimited_2 process_data_begin ] stop
+						 */
+// Start of branch "row4"
+						if (row4 != null) {
+							row6 = null;
+
+							/**
+							 * [tSchemaComplianceCheck_2 main ] start
+							 */
+
+							currentComponent = "tSchemaComplianceCheck_2";
+
+							if (execStat) {
+								runStat.updateStatOnConnection(iterateId, 1, 1
+
+										, "row4"
+
+								);
+							}
+
+							row5 = null;
+							row6 = null;
+							rsvUtil_tSchemaComplianceCheck_2.setRowValue_0(row4);
+							if (rsvUtil_tSchemaComplianceCheck_2.ifPassedThrough) {
+								row5 = new row5Struct();
+								row5.no = row4.no;
+								row5.newColumn = row4.newColumn;
+							}
+							if (!rsvUtil_tSchemaComplianceCheck_2.ifPassedThrough) {
+								row6 = new row6Struct();
+								row6.no = row4.no;
+								row6.newColumn = row4.newColumn;
+								row6.errorCode = String
+										.valueOf(rsvUtil_tSchemaComplianceCheck_2.resultErrorCodeThrough);
+								row6.errorMessage = rsvUtil_tSchemaComplianceCheck_2.resultErrorMessageThrough;
+							}
+							rsvUtil_tSchemaComplianceCheck_2.reset();
+
+							tos_count_tSchemaComplianceCheck_2++;
+
+							/**
+							 * [tSchemaComplianceCheck_2 main ] stop
+							 */
+
+							/**
+							 * [tSchemaComplianceCheck_2 process_data_begin ] start
+							 */
+
+							currentComponent = "tSchemaComplianceCheck_2";
+
+							/**
+							 * [tSchemaComplianceCheck_2 process_data_begin ] stop
+							 */
+// Start of branch "row5"
+							if (row5 != null) {
+
+								/**
+								 * [tLogRow_3 main ] start
+								 */
+
+								currentComponent = "tLogRow_3";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1
+
+											, "row5"
+
+									);
+								}
+
+///////////////////////		
+
+								String[] row_tLogRow_3 = new String[2];
+
+								if (row5.no != null) { //
+									row_tLogRow_3[0] = String.valueOf(row5.no);
+
+								} //
+
+								row_tLogRow_3[1] = String.valueOf(row5.newColumn);
+
+								util_tLogRow_3.addRow(row_tLogRow_3);
+								nb_line_tLogRow_3++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+								tos_count_tLogRow_3++;
+
+								/**
+								 * [tLogRow_3 main ] stop
+								 */
+
+								/**
+								 * [tLogRow_3 process_data_begin ] start
+								 */
+
+								currentComponent = "tLogRow_3";
+
+								/**
+								 * [tLogRow_3 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tLogRow_3 process_data_end ] start
+								 */
+
+								currentComponent = "tLogRow_3";
+
+								/**
+								 * [tLogRow_3 process_data_end ] stop
+								 */
+
+							} // End of branch "row5"
+
+// Start of branch "row6"
+							if (row6 != null) {
+
+								/**
+								 * [tLogRow_4 main ] start
+								 */
+
+								currentComponent = "tLogRow_4";
+
+								if (execStat) {
+									runStat.updateStatOnConnection(iterateId, 1, 1
+
+											, "row6"
+
+									);
+								}
+
+///////////////////////		
+
+								String[] row_tLogRow_4 = new String[4];
+
+								if (row6.no != null) { //
+									row_tLogRow_4[0] = String.valueOf(row6.no);
+
+								} //
+
+								row_tLogRow_4[1] = String.valueOf(row6.newColumn);
+
+								if (row6.errorCode != null) { //
+									row_tLogRow_4[2] = String.valueOf(row6.errorCode);
+
+								} //
+
+								if (row6.errorMessage != null) { //
+									row_tLogRow_4[3] = String.valueOf(row6.errorMessage);
+
+								} //
+
+								util_tLogRow_4.addRow(row_tLogRow_4);
+								nb_line_tLogRow_4++;
+//////
+
+//////                    
+
+///////////////////////    			
+
+								tos_count_tLogRow_4++;
+
+								/**
+								 * [tLogRow_4 main ] stop
+								 */
+
+								/**
+								 * [tLogRow_4 process_data_begin ] start
+								 */
+
+								currentComponent = "tLogRow_4";
+
+								/**
+								 * [tLogRow_4 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tLogRow_4 process_data_end ] start
+								 */
+
+								currentComponent = "tLogRow_4";
+
+								/**
+								 * [tLogRow_4 process_data_end ] stop
+								 */
+
+							} // End of branch "row6"
+
+							/**
+							 * [tSchemaComplianceCheck_2 process_data_end ] start
+							 */
+
+							currentComponent = "tSchemaComplianceCheck_2";
+
+							/**
+							 * [tSchemaComplianceCheck_2 process_data_end ] stop
+							 */
+
+						} // End of branch "row4"
+
+						/**
+						 * [tFileInputDelimited_2 process_data_end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+						/**
+						 * [tFileInputDelimited_2 process_data_end ] stop
+						 */
+
+						/**
+						 * [tFileInputDelimited_2 end ] start
+						 */
+
+						currentComponent = "tFileInputDelimited_2";
+
+					}
+				} finally {
+					if (!((Object) ("/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric/int.csv") instanceof java.io.InputStream)) {
+						if (fid_tFileInputDelimited_2 != null) {
+							fid_tFileInputDelimited_2.close();
+						}
+					}
+					if (fid_tFileInputDelimited_2 != null) {
+						globalMap.put("tFileInputDelimited_2_NB_LINE", fid_tFileInputDelimited_2.getRowNumber());
+
+					}
+				}
+
+				ok_Hash.put("tFileInputDelimited_2", true);
+				end_Hash.put("tFileInputDelimited_2", System.currentTimeMillis());
+
+				/**
+				 * [tFileInputDelimited_2 end ] stop
+				 */
+
+				/**
+				 * [tSchemaComplianceCheck_2 end ] start
+				 */
+
+				currentComponent = "tSchemaComplianceCheck_2";
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row4");
+				}
+
+				ok_Hash.put("tSchemaComplianceCheck_2", true);
+				end_Hash.put("tSchemaComplianceCheck_2", System.currentTimeMillis());
+
+				/**
+				 * [tSchemaComplianceCheck_2 end ] stop
+				 */
+
+				/**
+				 * [tLogRow_3 end ] start
+				 */
+
+				currentComponent = "tLogRow_3";
+
+//////
+
+				java.io.PrintStream consoleOut_tLogRow_3 = null;
+				if (globalMap.get("tLogRow_CONSOLE") != null) {
+					consoleOut_tLogRow_3 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+				} else {
+					consoleOut_tLogRow_3 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_3);
+				}
+
+				consoleOut_tLogRow_3.println(util_tLogRow_3.format().toString());
+				consoleOut_tLogRow_3.flush();
+//////
+				globalMap.put("tLogRow_3_NB_LINE", nb_line_tLogRow_3);
+
+///////////////////////    			
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row5");
+				}
+
+				ok_Hash.put("tLogRow_3", true);
+				end_Hash.put("tLogRow_3", System.currentTimeMillis());
+
+				/**
+				 * [tLogRow_3 end ] stop
+				 */
+
+				/**
+				 * [tLogRow_4 end ] start
+				 */
+
+				currentComponent = "tLogRow_4";
+
+//////
+
+				java.io.PrintStream consoleOut_tLogRow_4 = null;
+				if (globalMap.get("tLogRow_CONSOLE") != null) {
+					consoleOut_tLogRow_4 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+				} else {
+					consoleOut_tLogRow_4 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_4);
+				}
+
+				consoleOut_tLogRow_4.println(util_tLogRow_4.format().toString());
+				consoleOut_tLogRow_4.flush();
+//////
+				globalMap.put("tLogRow_4_NB_LINE", nb_line_tLogRow_4);
+
+///////////////////////    			
+
+				if (execStat) {
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row6");
+				}
+
+				ok_Hash.put("tLogRow_4", true);
+				end_Hash.put("tLogRow_4", System.currentTimeMillis());
+
+				/**
+				 * [tLogRow_4 end ] stop
+				 */
+
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tFileInputDelimited_2 finally ] start
+				 */
+
+				currentComponent = "tFileInputDelimited_2";
+
+				/**
+				 * [tFileInputDelimited_2 finally ] stop
+				 */
+
+				/**
+				 * [tSchemaComplianceCheck_2 finally ] start
+				 */
+
+				currentComponent = "tSchemaComplianceCheck_2";
+
+				/**
+				 * [tSchemaComplianceCheck_2 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_3 finally ] start
+				 */
+
+				currentComponent = "tLogRow_3";
+
+				/**
+				 * [tLogRow_3 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_4 finally ] start
+				 */
+
+				currentComponent = "tLogRow_4";
+
+				/**
+				 * [tLogRow_4 finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -2395,6 +3813,18 @@ public class check_numeric implements TalendJob {
 			e_tFileInputDelimited_1.printStackTrace();
 
 		}
+		try {
+			errorCode = null;
+			tFileInputDelimited_2Process(globalMap);
+			if (!"failure".equals(status)) {
+				status = "end";
+			}
+		} catch (TalendException e_tFileInputDelimited_2) {
+			globalMap.put("tFileInputDelimited_2_SUBPROCESS_STATE", -1);
+
+			e_tFileInputDelimited_2.printStackTrace();
+
+		}
 
 		this.globalResumeTicket = true;// to run tPostJob
 
@@ -2548,6 +3978,6 @@ public class check_numeric implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 75997 characters generated by Talend Open Studio for Data Integration on the
- * November 20, 2022 at 8:30:17 PM JST
+ * 113813 characters generated by Talend Open Studio for Data Integration on the
+ * November 20, 2022 at 10:00:43 PM JST
  ************************************************************************************************/

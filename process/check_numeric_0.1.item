@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:F5jliSfWm5Avxy6DQjSsOv9DFSkNGdtQkRym8vXN" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:mY8ZgGtLMVZzT2l6Xd3beYRiG8EsSeuC7rEJOwmC" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:oi8EX31ap1FFyGpIHVwAnQH+6LgkKfcmSbEoBGTB" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:YX88NqJT/m4LLUS2JRueywXIMn1xtaK9LzNtFM9g" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -107,7 +107,7 @@
     <routinesParameter id="_5iMWwGgTEe2VJYQC0qVpRQ" name="TalendStringUtil"/>
     <routinesParameter id="_5iG3MGgTEe2VJYQC0qVpRQ" name="TalendString"/>
   </parameters>
-  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="128">
+  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_1" show="false"/>
     <elementParameter field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
     <elementParameter field="FILE" name="FILENAME" value="&quot;/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric/bigdecimal.csv&quot;"/>
@@ -162,7 +162,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tSchemaComplianceCheck" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="288" posY="128">
+  <node componentName="tSchemaComplianceCheck" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="448" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSchemaComplianceCheck_1" show="false"/>
     <elementParameter field="RADIO" name="CHECK_ALL" value="true"/>
     <elementParameter field="RADIO" name="CUSTOMER" value="false"/>
@@ -209,7 +209,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="448" posY="128">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="608" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1" show="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
@@ -236,7 +236,7 @@
       <column comment="" key="false" length="3" name="newColumn" nullable="false" pattern="" precision="1" sourceType="" type="id_BigDecimal" originalLength="2" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="448" posY="256">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="608" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_2" show="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
@@ -269,7 +269,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="128">
+  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="768" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_2" show="false"/>
     <elementParameter field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
     <elementParameter field="FILE" name="FILENAME" value="&quot;/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/check_numeric/int.csv&quot;"/>
@@ -324,7 +324,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tSchemaComplianceCheck" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="128">
+  <node componentName="tSchemaComplianceCheck" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="928" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSchemaComplianceCheck_2" show="false"/>
     <elementParameter field="RADIO" name="CHECK_ALL" value="true"/>
     <elementParameter field="RADIO" name="CUSTOMER" value="false"/>
@@ -371,7 +371,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="960" posY="128">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1088" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_3" show="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
@@ -398,7 +398,7 @@
       <column comment="" key="false" length="3" name="newColumn" nullable="false" pattern="" precision="1" sourceType="" type="id_Integer" originalLength="2" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="960" posY="256">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1088" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_4" show="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
@@ -471,8 +471,9 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row6" show="false"/>
   </connection>
-  <note opaque="true" posX="64" posY="32" sizeHeight="64" sizeWidth="96" text="bigdecimal"/>
-  <note opaque="true" posX="576" posY="32" sizeHeight="64" sizeWidth="96" text="int"/>
+  <note opaque="true" posX="224" posY="32" sizeHeight="64" sizeWidth="96" text="bigdecimal"/>
+  <note opaque="true" posX="704" posY="32" sizeHeight="64" sizeWidth="96" text="int"/>
+  <note opaque="true" posX="32" posY="32" sizeHeight="417" sizeWidth="161" text="bigdecimal.csv/int.csv&#xA;1,1&#xA;2,-1&#xA;3,0.12&#xA;4,1.2&#xA;5,12&#xA;6,-0.12&#xA;7,-1.2&#xA;8,-12&#xA;9,1.23&#xA;10,0.123&#xA;11,1.23&#xA;12,12.3&#xA;13,123&#xA;14,-0.123&#xA;15,-1.23&#xA;16,-12.3&#xA;17,-123&#xA;18,0.1234&#xA;19,1.234&#xA;20,12.34&#xA;21,123.4&#xA;22,1234&#xA;23,-0.1234&#xA;24,-1.234&#xA;25,-12.34&#xA;26,-123.4&#xA;27,-1234"/>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>

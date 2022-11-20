@@ -1,4 +1,5 @@
 # TALEND_SAMPLE
+現在、ローカルのプロジェクト直下を全てコミットしていますので他の端末にて利用するケースでは不具合の可能性があります。随時調整予定です。
 gitignoreはまだ設定していません。今後、設定予定です。
 ## prepare Talend Project
 1. Talend Open Studio で適当なワークスペースを作成し、空のプロジェクト「TALEND_SAMPLE」を作成し、Studioを終了します。

@@ -41,7 +41,8 @@ testdata/check_numeric/int.csv
 26,-123.4
 27,-1234
 ```
-### OK data fot Bigdecimal
+### check for Bigdecimal (length=3, precision=1)
+#### OK
 ```
 |=-+--------=|
 |no|newColumn|
@@ -56,7 +57,7 @@ testdata/check_numeric/int.csv
 |16|-12.3    |
 '--+---------'
 ```
-### NG data for Bigdecimal
+#### NG
 ```
 |=-+---------+---------+-----------------------------------------------------------=|
 |no|newColumn|errorCode|errorMessage                                                |
@@ -82,7 +83,8 @@ testdata/check_numeric/int.csv
 |27|-1234.0  |8        |newColumn:invalid Length setting is unsuitable for Precision|
 '--+---------+---------+------------------------------------------------------------'
 ```
-### check OK for int
+### check for int (length=3, precision=1)
+#### OK
 ```
 |=-+--------=|
 |no|newColumn|
@@ -94,7 +96,7 @@ testdata/check_numeric/int.csv
 |13|123      |
 '--+---------'
 ```
-### check NG for int
+#### NG
 ```
 |=-+---------+---------+--------------------------=|
 |no|newColumn|errorCode|errorMessage               |

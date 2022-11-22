@@ -2,3 +2,5 @@ org.eclipse.core.resources.prefs
 org.eclipse.jdt.core.prefs
 beans-8.0.1.jar
 inputFiles.lst
+temp
+poms/jobs/process/connect_ftp_0.1/target

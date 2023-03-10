@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:UHTUYIdfuADUjxkkL4H2YwMjATQ+MWCO9LM+tv0U" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:mB4z03azIuf6WFcp3nOvlEbzmXh5Udov7fZ24i+u" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:FAzEoa9HecsWDO8iDWQhwLIHURMQUKAbMwMp5Sws" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:j2Sd7FDYI54F9sKsVdDIpublqZJTQzPi2KXvIbUt" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -113,14 +113,14 @@
     <elementParameter field="TEXT" name="PORT" value="21"/>
     <elementParameter field="TEXT" name="FTPS_PORT" value="990" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;username&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:3lK1Ci9vVzuiDP8YEpAjSfP0Z5Iyl6mmwnfnVd2HsEcm48qh"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:Wjdt3jbuIIivPy70IvKBjBt8jh4CarQYMExQZY3bqLAD2HSq"/>
     <elementParameter field="CHECK" name="SFTP" value="false"/>
     <elementParameter field="CHECK" name="FTPS" value="false"/>
     <elementParameter field="FILE" name="KEYSTORE_FILE" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="KEYSTORE_PASS" value="enc:system.encryption.key.v1:CYAr3Ihht1T327QF22maAHv6HdcVFaSSurfUGMhSKq9FBp02" show="false"/>
+    <elementParameter field="PASSWORD" name="KEYSTORE_PASS" value="enc:system.encryption.key.v1:ugKZN/UBqhlLR3rRIa1rDrvotRN4OVDdltXzKmZk6dTucB/L" show="false"/>
     <elementParameter field="CLOSED_LIST" name="AUTH_METHOD" value="PASSWORD" show="false"/>
     <elementParameter field="FILE" name="PRIVATEKEY" value="&quot;/.ssh/id_dsa&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASSPHRASE" value="enc:system.encryption.key.v1:z9rUzl2Cbn3WGXuafQSC8CqGTD65TOpGh8yxidMhhcX48lZi" show="false"/>
+    <elementParameter field="PASSWORD" name="PASSPHRASE" value="enc:system.encryption.key.v1:/QCtGCiMGn58yMNvo7J+wDyg1sr1y20KHICgtGtNIergRyUY" show="false"/>
     <elementParameter field="CLOSED_LIST" name="CONNECT_MODE" value="PASSIVE"/>
     <elementParameter field="CLOSED_LIST" name="SECURITY_MODE" value="IMPLICIT" show="false"/>
     <elementParameter field="CHECK" name="USE_ENCODING" value="false" show="false"/>
@@ -130,7 +130,7 @@
     <elementParameter field="TEXT" name="PROXY_HOST" value="&quot;127.0.0.1&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_PORT" value="&quot;1080&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_USERNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:PiJMbgJ4sG7Mb6cunHnm83CzJn5mI2zg92CY53Ki" show="false"/>
+    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:9Tye38i48u0eg6YDUNWpIo39huzKW/xmIGyBlFoE" show="false"/>
     <elementParameter field="OPENED_LIST" name="FTPS_PROT" value="&quot;P&quot;" show="false"/>
     <elementParameter field="TEXT" name="FTPS_PROTECTION_BUFF_SIZE" value="0" show="false"/>
     <elementParameter field="CHECK" name="REMOTE_VERIFICATION" value="true" show="false"/>
@@ -147,18 +147,18 @@
     <elementParameter field="TEXT" name="PORT" value="21" show="false"/>
     <elementParameter field="TEXT" name="FTPS_PORT" value="990" show="false"/>
     <elementParameter field="TEXT" name="USERNAME" value="&quot;anonymous&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASSWORD" value="enc:system.encryption.key.v1:eXiEG9udqtULASlTYUZZRezXyszmDe09PfzTymiW1DspjAiFq3Nc" show="false"/>
+    <elementParameter field="PASSWORD" name="PASSWORD" value="enc:system.encryption.key.v1:nm9h491Xl4GPSkjzbNU/XOvU/wNzJIN9ShGJST21AwQcjGuX7JM/" show="false"/>
     <elementParameter field="CHECK" name="SFTP" value="false" show="false"/>
     <elementParameter field="CHECK" name="FTPS" value="false" show="false"/>
     <elementParameter field="CLOSED_LIST" name="AUTH_METHOD" value="PASSWORD" show="false"/>
     <elementParameter field="FILE" name="PRIVATEKEY" value="&quot;/.ssh/id_dsa&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASSPHRASE" value="enc:system.encryption.key.v1:1pr290LghgJX3yA8MKA5HEIAfnxdxhGJ+v7Wb7AIPAuk8xZG" show="false"/>
+    <elementParameter field="PASSWORD" name="PASSPHRASE" value="enc:system.encryption.key.v1:nNji89j27aLsbBnEoXpNWdIN+m/damdFw5ED0q7xWiQkTkws" show="false"/>
     <elementParameter field="DIRECTORY" name="LOCALDIR" value="&quot;/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/connect_ftp/send&quot;"/>
     <elementParameter field="TEXT" name="REMOTEDIR" value="&quot;.&quot;"/>
     <elementParameter field="CHECK" name="CREATE_DIR_IF_NOT_EXIST" value="false"/>
     <elementParameter field="CHECK" name="MOVE_TO_THE_CURRENT_DIRECTORY" value="true"/>
     <elementParameter field="FILE" name="KEYSTORE_FILE" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="KEYSTORE_PASS" value="enc:system.encryption.key.v1:HWGGeLIdkvtRQz6QZSAVz9D9nqstj5vNz9uvvjPfROpblXYC" show="false"/>
+    <elementParameter field="PASSWORD" name="KEYSTORE_PASS" value="enc:system.encryption.key.v1:YaiWUWxej+RJ+EhJmobgxuYORUOUf4bMDyM3NbT9/6QNB286" show="false"/>
     <elementParameter field="CLOSED_LIST" name="MODE" value="ascii"/>
     <elementParameter field="CLOSED_LIST" name="OVERWRITE" value="always"/>
     <elementParameter field="CHECK" name="APPEND" value="false"/>
@@ -179,7 +179,7 @@
     <elementParameter field="TEXT" name="PROXY_HOST" value="&quot;127.0.0.1&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_PORT" value="&quot;1080&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_USERNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:LOomlGqkWg/HIrfDhd5oGOXrGqL3T2sv+tbvF+vO" show="false"/>
+    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:SAXT9saaFujVD9EUo7+GTfX1rvtSOk3QKmVAYbMv" show="false"/>
     <elementParameter field="CHECK" name="IGNORE_FAILURE_AT_QUIT" value="false"/>
     <elementParameter field="OPENED_LIST" name="FTPS_PROT" value="&quot;P&quot;" show="false"/>
     <elementParameter field="TEXT" name="FTPS_PROTECTION_BUFF_SIZE" value="0" show="false"/>
@@ -364,14 +364,14 @@
     <elementParameter field="TEXT" name="PORT" value="21" show="false"/>
     <elementParameter field="TEXT" name="FTPS_PORT" value="990" show="false"/>
     <elementParameter field="TEXT" name="USERNAME" value="&quot;anonymous&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASSWORD" value="enc:system.encryption.key.v1:f5BOqhBG66DhI0hXKaQZDgVOS18SpKHIZeDwMB8a04MaDLBTih6J" show="false"/>
+    <elementParameter field="PASSWORD" name="PASSWORD" value="enc:system.encryption.key.v1:E7BW5+l13p2s5HYafOFhwxvyuQvvkZUcKeUImJB3LzvCGMVE0TA+" show="false"/>
     <elementParameter field="CHECK" name="SFTP" value="false" show="false"/>
     <elementParameter field="CHECK" name="FTPS" value="false" show="false"/>
     <elementParameter field="CLOSED_LIST" name="AUTH_METHOD" value="PASSWORD" show="false"/>
     <elementParameter field="FILE" name="PRIVATEKEY" value="&quot;/.ssh/id_dsa&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASSPHRASE" value="enc:system.encryption.key.v1:pck2Q8+R/I5ybbarpipdGqMhHiNDzU+Jk8od/pjN42E2WZU5" show="false"/>
+    <elementParameter field="PASSWORD" name="PASSPHRASE" value="enc:system.encryption.key.v1:fO/EtRtsjJw98NnIhU0R/Qt8P69bM70fvimlSJ9teH1wflmF" show="false"/>
     <elementParameter field="FILE" name="KEYSTORE_FILE" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="KEYSTORE_PASS" value="enc:system.encryption.key.v1:k2cwU9LKWBCIIgp24VecaLN5FPfCla2N+8n6URnGaP/txYTX" show="false"/>
+    <elementParameter field="PASSWORD" name="KEYSTORE_PASS" value="enc:system.encryption.key.v1:vxmqoK8l2hkjWkBi+jm0VYnAW54dP0OoSR44HXj/qlHH3Yom" show="false"/>
     <elementParameter field="TEXT" name="REMOTEDIR" value="&quot;.&quot;"/>
     <elementParameter field="CHECK" name="MOVE_TO_THE_CURRENT_DIRECTORY" value="true"/>
     <elementParameter field="CHECK" name="DIR_FULL" value="false"/>
@@ -387,7 +387,7 @@
     <elementParameter field="TEXT" name="PROXY_HOST" value="&quot;127.0.0.1&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_PORT" value="&quot;1080&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_USERNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:K6m/nA1Pn/aNTS++4LyJ/jLxbEgxrpSt+L0J3NJF" show="false"/>
+    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:M47f41wzINlaHJV3drd2OGU1odq+QFtEyPQjFe4t" show="false"/>
     <elementParameter field="CHECK" name="IGNORE_FAILURE_AT_QUIT" value="false"/>
     <elementParameter field="OPENED_LIST" name="FTPS_PROT" value="&quot;P&quot;" show="false"/>
     <elementParameter field="TEXT" name="FTPS_PROTECTION_BUFF_SIZE" value="0" show="false"/>
@@ -404,14 +404,14 @@
     <elementParameter field="TEXT" name="PORT" value="21" show="false"/>
     <elementParameter field="TEXT" name="FTPS_PORT" value="990" show="false"/>
     <elementParameter field="TEXT" name="USERNAME" value="&quot;anonymous&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASSWORD" value="enc:system.encryption.key.v1:ubcFcicYwnKoFvKQtzMZuXcxK/WmKhcbuNKi9G9IkI6VK234odIw" show="false"/>
+    <elementParameter field="PASSWORD" name="PASSWORD" value="enc:system.encryption.key.v1:V/D7pQ003cBNOAiUry4cfHSTXjsgD/L8Xag0XrZsHNes3n4qSb8S" show="false"/>
     <elementParameter field="CHECK" name="SFTP" value="false" show="false"/>
     <elementParameter field="CHECK" name="FTPS" value="false" show="false"/>
     <elementParameter field="CLOSED_LIST" name="AUTH_METHOD" value="PASSWORD" show="false"/>
     <elementParameter field="FILE" name="PRIVATEKEY" value="&quot;/.ssh/id_dsa&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASSPHRASE" value="enc:system.encryption.key.v1:N8vz73OKUItFJIjFyPwmVe1RDSCuWOxOJJlck2G7J2i8oBA+" show="false"/>
+    <elementParameter field="PASSWORD" name="PASSPHRASE" value="enc:system.encryption.key.v1:S7po5AwSZrdWfCCVcSQ3EkYq6H+HdBnTR0Ycyb5PlvVlmrn9" show="false"/>
     <elementParameter field="FILE" name="KEYSTORE_FILE" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="KEYSTORE_PASS" value="enc:system.encryption.key.v1:adkMiuYLXqzsEamd0tHFHPvzODvBJR6tHUyiZTFMXh0lB5l9" show="false"/>
+    <elementParameter field="PASSWORD" name="KEYSTORE_PASS" value="enc:system.encryption.key.v1:cJDt5faj+SM7+Vz6e2OwwVK9vtvbSjEyaw0//5YAt9C9FqpH" show="false"/>
     <elementParameter field="DIRECTORY" name="LOCALDIR" value="&quot;/Users/nakazawasugio/talend/wks/TALEND_SAMPLE/testdata/connect_ftp/receive&quot;"/>
     <elementParameter field="TEXT" name="REMOTEDIR" value="&quot;.&quot;"/>
     <elementParameter field="CHECK" name="MOVE_TO_THE_CURRENT_DIRECTORY" value="true"/>
@@ -433,7 +433,7 @@
     <elementParameter field="TEXT" name="PROXY_HOST" value="&quot;127.0.0.1&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_PORT" value="&quot;1080&quot;" show="false"/>
     <elementParameter field="TEXT" name="PROXY_USERNAME" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:CtOunfPLguqSTPewgjbe68s5uMgqyXjv5qt/JmNV" show="false"/>
+    <elementParameter field="PASSWORD" name="PROXY_PASSWORD" value="enc:system.encryption.key.v1:uiut2XtLc+UIJjEGmfuX/lj8eLqVXUvwpnbphr1D" show="false"/>
     <elementParameter field="CHECK" name="IGNORE_FAILURE_AT_QUIT" value="false"/>
     <elementParameter field="CHECK" name="PRINT_MESSAGE" value="false"/>
     <elementParameter field="OPENED_LIST" name="FTPS_PROT" value="&quot;P&quot;" show="false"/>
@@ -566,6 +566,7 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
   </connection>
+  <note opaque="true" posX="160" posY="32" sizeHeight="161" sizeWidth="257" text="事前にFTPDを起動。&#xA;host: localhost&#xA;user: username&#xA;password: mypass&#xA;"/>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFTPConnection_1" show="false"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>

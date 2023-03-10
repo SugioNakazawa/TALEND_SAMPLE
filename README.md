@@ -6,6 +6,10 @@ gitignoreはまだ設定していません。今後、設定予定です。
 1. ターミナルでワークスペース ディレクトリに入り、TALEND_SAMPLEディレクトリを削除します。
 1. git clone コマンドでTALEND_SAMPLEをクローンします。
 1. 再度、Talend Open Studioを起動するとクローンしたプロジェクトが利用可能となります。
+### Studioのバージョンと合わない場合
+Studioのバージョンが異なるとプロジェクトがオープンできない場合があります。
+プロジェクト直下の talend.project ファイル内の
+productVersion属性の値をStudioのバージョンに書き換えることで起動できる場合があります。
 
 ## JOB check_numeric
 check number by tSchemaComplianceCheck

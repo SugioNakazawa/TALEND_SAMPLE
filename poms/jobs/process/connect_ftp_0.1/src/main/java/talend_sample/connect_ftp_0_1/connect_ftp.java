@@ -48,7 +48,7 @@ import java.util.Comparator;
  * Description: <br>
  * 
  * @author user@talend.com
- * @version 8.0.1.20211109_1610
+ * @version 8.0.1.20210915_1333-M12
  * @status
  */
 public class connect_ftp implements TalendJob {
@@ -499,7 +499,7 @@ public class connect_ftp implements TalendJob {
 								? new String[0]
 								: nonProxyHostsString_tFTPConnection_1.split("\\|");
 						for (String nonProxyHost : nonProxyHosts_tFTPConnection_1) {
-							if (("localhost").matches(nonProxyHost.trim())) {
+							if ("localhost".matches(nonProxyHost.trim())) {
 								isHostIgnored_tFTPConnection_1 = true;
 								break;
 							}
@@ -555,7 +555,7 @@ public class connect_ftp implements TalendJob {
 
 					final String decryptedPassword_tFTPConnection_1 = routines.system.PasswordEncryptUtil
 							.decryptPassword(
-									"enc:routine.encryption.key.v1:zLQv4LBSag1vmwAaeRKhV8mJZV0nYDMvPOSJnpyHi5emZw==");
+									"enc:routine.encryption.key.v1:rGGoHHT3jjp57XNnVVV49RCR3uCZhRFfvA+J4SflGPX6BQ==");
 
 					boolean isLoginSuccessful_tFTPConnection_1 = ftp_tFTPConnection_1.login("username",
 							decryptedPassword_tFTPConnection_1);
@@ -977,33 +977,12 @@ public class connect_ftp implements TalendJob {
 			return intReturn;
 		}
 
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
 		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
 			if (intNum == null) {
 				dos.writeByte(-1);
 			} else {
 				dos.writeByte(0);
 				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
 			}
 		}
 
@@ -1027,26 +1006,6 @@ public class connect_ftp implements TalendJob {
 			return strReturn;
 		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALEND_SAMPLE_connect_ftp.length) {
-					if (length < 1024 && commonByteArray_TALEND_SAMPLE_connect_ftp.length == 0) {
-						commonByteArray_TALEND_SAMPLE_connect_ftp = new byte[1024];
-					} else {
-						commonByteArray_TALEND_SAMPLE_connect_ftp = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_TALEND_SAMPLE_connect_ftp, 0, length);
-				strReturn = new String(commonByteArray_TALEND_SAMPLE_connect_ftp, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
 		private void writeString(String str, ObjectOutputStream dos) throws IOException {
 			if (str == null) {
 				dos.writeInt(-1);
@@ -1054,16 +1013,6 @@ public class connect_ftp implements TalendJob {
 				byte[] byteArray = str.getBytes(utf8Charset);
 				dos.writeInt(byteArray.length);
 				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
 			}
 		}
 
@@ -1079,33 +1028,12 @@ public class connect_ftp implements TalendJob {
 			return dateReturn;
 		}
 
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
 		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
 			if (date1 == null) {
 				dos.writeByte(-1);
 			} else {
 				dos.writeByte(0);
 				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
 			}
 		}
 
@@ -1132,51 +1060,7 @@ public class connect_ftp implements TalendJob {
 
 		}
 
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_TALEND_SAMPLE_connect_ftp) {
-
-				try {
-
-					int length = 0;
-
-					this.newColumn = readInteger(dis);
-
-					this.newColumn1 = readString(dis);
-
-					this.newColumn2 = readDate(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
 		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// Integer
-
-				writeInteger(this.newColumn, dos);
-
-				// String
-
-				writeString(this.newColumn1, dos);
-
-				// java.util.Date
-
-				writeDate(this.newColumn2, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
 				// Integer
@@ -1356,11 +1240,11 @@ public class connect_ftp implements TalendJob {
 					NB_ITERATE_tFTPGet_1++;
 
 					if (execStat) {
-						runStat.updateStatOnConnection("row1", 3, 0);
+						runStat.updateStatOnConnection("iterate2", 3, 0);
 					}
 
 					if (execStat) {
-						runStat.updateStatOnConnection("iterate2", 3, 0);
+						runStat.updateStatOnConnection("row1", 3, 0);
 					}
 
 					if (execStat) {
@@ -2404,33 +2288,12 @@ public class connect_ftp implements TalendJob {
 			return dateReturn;
 		}
 
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
 		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
 			if (date1 == null) {
 				dos.writeByte(-1);
 			} else {
 				dos.writeByte(0);
 				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
 			}
 		}
 
@@ -2454,26 +2317,6 @@ public class connect_ftp implements TalendJob {
 			return strReturn;
 		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALEND_SAMPLE_connect_ftp.length) {
-					if (length < 1024 && commonByteArray_TALEND_SAMPLE_connect_ftp.length == 0) {
-						commonByteArray_TALEND_SAMPLE_connect_ftp = new byte[1024];
-					} else {
-						commonByteArray_TALEND_SAMPLE_connect_ftp = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_TALEND_SAMPLE_connect_ftp, 0, length);
-				strReturn = new String(commonByteArray_TALEND_SAMPLE_connect_ftp, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
 		private void writeString(String str, ObjectOutputStream dos) throws IOException {
 			if (str == null) {
 				dos.writeInt(-1);
@@ -2484,29 +2327,7 @@ public class connect_ftp implements TalendJob {
 			}
 		}
 
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
-			}
-		}
-
 		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
 			Integer intReturn;
 			int length = 0;
 			length = dis.readByte();
@@ -2524,15 +2345,6 @@ public class connect_ftp implements TalendJob {
 			} else {
 				dos.writeByte(0);
 				dos.writeInt(intNum);
-			}
-		}
-
-		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (intNum == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeInt(intNum);
 			}
 		}
 
@@ -2577,105 +2389,7 @@ public class connect_ftp implements TalendJob {
 
 		}
 
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_TALEND_SAMPLE_connect_ftp) {
-
-				try {
-
-					int length = 0;
-
-					this.moment = readDate(dis);
-
-					this.pid = readString(dis);
-
-					this.root_pid = readString(dis);
-
-					this.father_pid = readString(dis);
-
-					this.project = readString(dis);
-
-					this.job = readString(dis);
-
-					this.context = readString(dis);
-
-					this.priority = readInteger(dis);
-
-					this.type = readString(dis);
-
-					this.origin = readString(dis);
-
-					this.message = readString(dis);
-
-					this.code = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
 		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// java.util.Date
-
-				writeDate(this.moment, dos);
-
-				// String
-
-				writeString(this.pid, dos);
-
-				// String
-
-				writeString(this.root_pid, dos);
-
-				// String
-
-				writeString(this.father_pid, dos);
-
-				// String
-
-				writeString(this.project, dos);
-
-				// String
-
-				writeString(this.job, dos);
-
-				// String
-
-				writeString(this.context, dos);
-
-				// Integer
-
-				writeInteger(this.priority, dos);
-
-				// String
-
-				writeString(this.type, dos);
-
-				// String
-
-				writeString(this.origin, dos);
-
-				// String
-
-				writeString(this.message, dos);
-
-				// Integer
-
-				writeInteger(this.code, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
 				// java.util.Date
@@ -3248,33 +2962,12 @@ public class connect_ftp implements TalendJob {
 			return dateReturn;
 		}
 
-		private java.util.Date readDate(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = unmarshaller.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(unmarshaller.readLong());
-			}
-			return dateReturn;
-		}
-
 		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
 			if (date1 == null) {
 				dos.writeByte(-1);
 			} else {
 				dos.writeByte(0);
 				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private void writeDate(java.util.Date date1, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (date1 == null) {
-				marshaller.writeByte(-1);
-			} else {
-				marshaller.writeByte(0);
-				marshaller.writeLong(date1.getTime());
 			}
 		}
 
@@ -3298,26 +2991,6 @@ public class connect_ftp implements TalendJob {
 			return strReturn;
 		}
 
-		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = unmarshaller.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_TALEND_SAMPLE_connect_ftp.length) {
-					if (length < 1024 && commonByteArray_TALEND_SAMPLE_connect_ftp.length == 0) {
-						commonByteArray_TALEND_SAMPLE_connect_ftp = new byte[1024];
-					} else {
-						commonByteArray_TALEND_SAMPLE_connect_ftp = new byte[2 * length];
-					}
-				}
-				unmarshaller.readFully(commonByteArray_TALEND_SAMPLE_connect_ftp, 0, length);
-				strReturn = new String(commonByteArray_TALEND_SAMPLE_connect_ftp, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
 		private void writeString(String str, ObjectOutputStream dos) throws IOException {
 			if (str == null) {
 				dos.writeInt(-1);
@@ -3325,16 +2998,6 @@ public class connect_ftp implements TalendJob {
 				byte[] byteArray = str.getBytes(utf8Charset);
 				dos.writeInt(byteArray.length);
 				dos.write(byteArray);
-			}
-		}
-
-		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
-			if (str == null) {
-				marshaller.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				marshaller.writeInt(byteArray.length);
-				marshaller.write(byteArray);
 			}
 		}
 
@@ -3393,137 +3056,7 @@ public class connect_ftp implements TalendJob {
 
 		}
 
-		public void readData(org.jboss.marshalling.Unmarshaller dis) {
-
-			synchronized (commonByteArrayLock_TALEND_SAMPLE_connect_ftp) {
-
-				try {
-
-					int length = 0;
-
-					this.moment = readDate(dis);
-
-					this.pid = readString(dis);
-
-					this.father_pid = readString(dis);
-
-					this.root_pid = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.system_pid = null;
-					} else {
-						this.system_pid = dis.readLong();
-					}
-
-					this.project = readString(dis);
-
-					this.job = readString(dis);
-
-					this.job_repository_id = readString(dis);
-
-					this.job_version = readString(dis);
-
-					this.context = readString(dis);
-
-					this.origin = readString(dis);
-
-					this.message_type = readString(dis);
-
-					this.message = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.duration = null;
-					} else {
-						this.duration = dis.readLong();
-					}
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
 		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// java.util.Date
-
-				writeDate(this.moment, dos);
-
-				// String
-
-				writeString(this.pid, dos);
-
-				// String
-
-				writeString(this.father_pid, dos);
-
-				// String
-
-				writeString(this.root_pid, dos);
-
-				// Long
-
-				if (this.system_pid == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeLong(this.system_pid);
-				}
-
-				// String
-
-				writeString(this.project, dos);
-
-				// String
-
-				writeString(this.job, dos);
-
-				// String
-
-				writeString(this.job_repository_id, dos);
-
-				// String
-
-				writeString(this.job_version, dos);
-
-				// String
-
-				writeString(this.context, dos);
-
-				// String
-
-				writeString(this.origin, dos);
-
-				// String
-
-				writeString(this.message_type, dos);
-
-				// String
-
-				writeString(this.message, dos);
-
-				// Long
-
-				if (this.duration == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeLong(this.duration);
-				}
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
 				// java.util.Date
@@ -4417,6 +3950,6 @@ public class connect_ftp implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 127065 characters generated by Talend Open Studio for Data Integration on the
- * November 22, 2022 at 10:00:19 PM JST
+ * 115702 characters generated by Talend Open Studio for Data Integration on the
+ * 2023年3月10日 14:24:44 JST
  ************************************************************************************************/

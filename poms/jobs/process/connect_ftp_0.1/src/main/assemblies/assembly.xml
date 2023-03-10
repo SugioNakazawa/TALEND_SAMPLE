@@ -45,14 +45,9 @@
             <destName>crypto-utils-0.31.12.jar</destName>
         </file>
         <file>
-            <source>/Applications/TOSDI-8.0.1/studio/configuration/.m2/repository/org/jboss/marshalling/jboss-marshalling/2.0.12.Final/jboss-marshalling-2.0.12.Final.jar</source>
+            <source>/Applications/TOSDI-8.0.1/studio/configuration/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar</source>
             <outputDirectory>lib</outputDirectory>
-            <destName>jboss-marshalling-2.0.12.Final.jar</destName>
-        </file>
-        <file>
-            <source>/Applications/TOSDI-8.0.1/studio/configuration/.m2/repository/org/slf4j/slf4j-api/1.7.29/slf4j-api-1.7.29.jar</source>
-            <outputDirectory>lib</outputDirectory>
-            <destName>slf4j-api-1.7.29.jar</destName>
+            <destName>slf4j-api-1.7.25.jar</destName>
         </file>
     </files>
     <fileSets>
@@ -255,6 +250,7 @@
             <outputDirectory>lib</outputDirectory>
             <includes>
                 <include>org.talend.libraries:jakarta-oro-2.0.8:jar:6.0.0</include>
+                <include>org.talend.libraries:talendcsv:jar:6.0.0</include>
                 <include>org.example.talend_sample.code:routines:jar:8.0.1</include>
             </includes>
             <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
@@ -263,13 +259,12 @@
         <dependencySet>
             <outputDirectory>lib</outputDirectory>
             <includes>
-                <include>org.apache.logging.log4j:log4j-api:jar:2.13.2</include>
+                <include>org.apache.logging.log4j:log4j-slf4j-impl:jar:2.12.1</include>
                 <include>commons-net:commons-net:jar:3.6</include>
-                <include>org.apache.logging.log4j:log4j-core:jar:2.13.2</include>
-                <include>org.talend.components:talendcsv:jar:1.0.0</include>
+                <include>org.apache.logging.log4j:log4j-api:jar:2.12.1</include>
                 <include>org.talend.components.lib:talend-proxy:jar:1.0.2</include>
                 <include>org.talend.components.lib:talend_file_enhanced:jar:1.1</include>
-                <include>org.apache.logging.log4j:log4j-slf4j-impl:jar:2.13.2</include>
+                <include>org.apache.logging.log4j:log4j-core:jar:2.12.1</include>
             </includes>
             <useProjectArtifact>false</useProjectArtifact>
         </dependencySet>

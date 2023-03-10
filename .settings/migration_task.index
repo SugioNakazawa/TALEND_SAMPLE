@@ -670,6 +670,11 @@
     "version" : "6.0.1",
     "status" : "ok"
   }, {
+    "id" : "org.talend.repository.model.migration.ChangeAS400DBVersionMigrationTask",
+    "breaks" : "5.1.1",
+    "version" : "5.1.2",
+    "status" : "noimpact"
+  }, {
     "id" : "org.talend.repository.model.migration.ChangeActiveMqJarName4MOMComponents",
     "breaks" : "5.2.0",
     "version" : "5.2.1",
@@ -1921,6 +1926,11 @@
     "breaks" : "6.5.0",
     "version" : "6.5.0",
     "status" : "ok"
+  }, {
+    "id" : "org.talend.repository.model.migration.UpdateDbVersionForVerticaMigrationTask",
+    "breaks" : "5.4.1",
+    "version" : "5.4.3",
+    "status" : "noimpact"
   }, {
     "id" : "org.talend.repository.model.migration.UpdateELTComponentMigrationTask",
     "breaks" : "6.1.1",

@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:fLhb4yB3rf6b+/8gZoPNTRMfEl8KzNNRuMwZQKEM" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:84KyX6Qlgzaa+4tpOHL6VrRJ8am73xKYqQGT5QIf" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:YBEKeMT5VfeSjUTrRaOQVz0vljWmUBSSyoIJtqhk" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:am2U0xLXalyzmKsUXp/g+fK6p6zIxEWpn6HIeE1P" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -107,7 +107,7 @@
     <routinesParameter id="_5iMWwGgTEe2VJYQC0qVpRQ" name="TalendStringUtil"/>
     <routinesParameter id="_5iG3MGgTEe2VJYQC0qVpRQ" name="TalendString"/>
   </parameters>
-  <node componentName="tMSSqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="160">
+  <node componentName="tMSSqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="32" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBConnection_1" show="false"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_4Ye5YL8KEe2hkdjx6eY3Tw" show="false"/>
@@ -118,7 +118,7 @@
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;sampledb&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;sa&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:RSdkv8DmxWHU7zDtlPnnvyAYXuAM1CIuCBZ7Tr44rOLTGqCUAYhOP/u9jSQ="/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:XyusawBjbxUs2MyaO5abA6lmma3WTaLRmPE6pu0k1REE0l/mw1WLnPeOFUU="/>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
@@ -133,7 +133,7 @@
     <elementParameter field="TEXT" name="LABEL" value="mssql"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tMSSqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="288">
+  <node componentName="tMSSqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="32" posY="288">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBInput_1" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="" show="false"/>
@@ -146,7 +146,7 @@
     <elementParameter field="TEXT" name="DB_SCHEMA" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;sampledb&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;sa&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:NU9wGagsUmDQFacvPAFtbk68XA0VsjUUpywobj8uiBIZgm7nl/T5XVpgzMk="/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:4rUY0LK6SmaEiD6AJGxp/CkxgAJIzXTu9p7y3nWzuHGEJGfCAmUdQIsCkHo="/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_4Ye5YL8KEe2hkdjx6eY3Tw - sample_tbl" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;sample_tbl&quot;"/>
@@ -196,7 +196,7 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="224" posY="288">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="192" posY="288">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1" show="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
@@ -242,7 +242,7 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="288">
+  <node componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="352" posY="288">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileOutputDelimited_1" show="false"/>
     <elementParameter field="CHECK" name="USESTREAM" value="false"/>
     <elementParameter field="TEXT" name="STREAMNAME" value="outputStream" show="false"/>
@@ -290,13 +290,13 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tFileOutputPositional" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="608" posY="288">
+  <node componentName="tFileOutputPositional" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="352" posY="384">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileOutputPositional_1" show="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_DYNAMIC" value="false"/>
     <elementParameter field="COMPONENT_LIST" name="DYNAMIC" value="" show="false"/>
     <elementParameter field="CHECK" name="USESTREAM" value="false"/>
     <elementParameter field="TEXT" name="STREAMNAME" value="outputStream" show="false"/>
-    <elementParameter field="FILE" name="FILENAME" value="&quot;/Users/nakazawasugio/toswks/out.txt&quot;"/>
+    <elementParameter field="FILE" name="FILENAME" value="&quot;/Users/nakazawasugio/toswks/out1.txt&quot;"/>
     <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
     <elementParameter field="CHECK" name="APPEND" value="false"/>
     <elementParameter field="CHECK" name="INCLUDEHEADER" value="false"/>
@@ -358,7 +358,75 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tMSSqlClose" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="416">
+  <node componentName="tFileOutputPositional" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="352" posY="512">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileOutputPositional_2" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_DYNAMIC" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="DYNAMIC" value="" show="false"/>
+    <elementParameter field="CHECK" name="USESTREAM" value="false"/>
+    <elementParameter field="TEXT" name="STREAMNAME" value="outputStream" show="false"/>
+    <elementParameter field="FILE" name="FILENAME" value="&quot;/Users/nakazawasugio/toswks/out2.txt&quot;"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter field="CHECK" name="APPEND" value="false"/>
+    <elementParameter field="CHECK" name="INCLUDEHEADER" value="false"/>
+    <elementParameter field="CHECK" name="COMPRESS" value="false"/>
+    <elementParameter field="TABLE" name="FORMATS">
+      <elementValue elementRef="SCHEMA_COLUMN" value="col1"/>
+      <elementValue elementRef="SIZE" value="10"/>
+      <elementValue elementRef="PADDING_CHAR" value="'*'"/>
+      <elementValue elementRef="ALIGN" value="'L'"/>
+      <elementValue elementRef="KEEP" value="'A'"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="col2"/>
+      <elementValue elementRef="SIZE" value="19"/>
+      <elementValue elementRef="PADDING_CHAR" value="'='"/>
+      <elementValue elementRef="ALIGN" value="'C'"/>
+      <elementValue elementRef="KEEP" value="'A'"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="col3"/>
+      <elementValue elementRef="SIZE" value="6"/>
+      <elementValue elementRef="PADDING_CHAR" value="'*'"/>
+      <elementValue elementRef="ALIGN" value="'R'"/>
+      <elementValue elementRef="KEEP" value="'A'"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="col4"/>
+      <elementValue elementRef="SIZE" value="7"/>
+      <elementValue elementRef="PADDING_CHAR" value="'='"/>
+      <elementValue elementRef="ALIGN" value="'R'"/>
+      <elementValue elementRef="KEEP" value="'A'"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="col5"/>
+      <elementValue elementRef="SIZE" value="7"/>
+      <elementValue elementRef="PADDING_CHAR" value="'*'"/>
+      <elementValue elementRef="ALIGN" value="'R'"/>
+      <elementValue elementRef="KEEP" value="'A'"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" value="&quot;,&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" value="&quot;.&quot;" show="false"/>
+    <elementParameter field="CHECK" name="USE_BYTE" value="false"/>
+    <elementParameter field="CHECK" name="CREATE" value="true"/>
+    <elementParameter field="CHECK" name="FLUSHONROW" value="false"/>
+    <elementParameter field="TEXT" name="FLUSHONROW_NUM" value="1" show="false"/>
+    <elementParameter field="CHECK" name="ROW_MODE" value="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="DELETE_EMPTYFILE" value="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="sample_tbl" name="tFileOutputPositional_2">
+      <column comment="" key="true" length="10" name="col1" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="18" name="col2" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="5" name="col3" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="5" name="col4" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="5" name="col5" nullable="true" pattern="" precision="4" sourceType="NUMERIC" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+    </metadata>
+  </node>
+  <node componentName="tMSSqlClose" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="32" posY="448">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBClose_1" show="false"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -381,16 +449,41 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3" show="false"/>
   </connection>
-  <note opaque="true" posX="32" posY="32" sizeHeight="97" sizeWidth="161" text="mssql接続情報&#xA;host: localhost&#xA;user: sa&#xA;password: saPassword1234"/>
-  <note opaque="true" posX="128" posY="352" sizeHeight="129" sizeWidth="225" text=".----+----+----+------+------.&#xA;|         tLogRow_1          |&#xA;|=---+----+----+------+-----=|&#xA;|col1|col2|col3|col4  |col5  |&#xA;|=---+----+----+------+-----=|&#xA;|1   |1   |1   |1.00  |1.0000|&#xA;|20  |20  |20  |20.10 |2.1000|&#xA;|300 |300 |300 |300.10|3.1000|&#xA;'----+----+----+------+------'&#xA;">
+  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tFileOutputPositional_1" offsetLabelX="0" offsetLabelY="0" source="tFileOutputPositional_1" target="tFileOutputPositional_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
+  </connection>
+  <note opaque="true" posX="0" posY="0" sizeHeight="129" sizeWidth="193" text="mssql接続情報&#xA;host: localhost&#xA;user: sa&#xA;password: saPassword1234">
+    <elementParameter field="TEXT" name="FONT_SIZE" value="12"/>
+  </note>
+  <note opaque="true" posX="96" posY="128" sizeHeight="129" sizeWidth="353" text=".----+-------------------+------+-------+-------.&#xA;|                   tLogRow_1                   |&#xA;|=---+-------------------+------+-------+------=|&#xA;|col1|col2               |col3  |col4   |col5   |&#xA;|=---+-------------------+------+-------+------=|&#xA;|1   |123456789012345678 |12345 |123.45 |1.2345 |&#xA;|2   |-123456789012345678|-12345|-123.45|-1.2345|&#xA;|3   |3                  |3     |3.00   |3.0000 |&#xA;|4   |-4                 |-4    |-4.00  |-4.0000|&#xA;|5   |1                  |12345 |123.46 |1.2346 |&#xA;'----+-------------------+------+-------+-------'&#xA;&#xA;">
     <elementParameter field="TEXT" name="NOTE_FONT" value="SF Mono"/>
   </note>
-  <note opaque="true" posX="224" posY="32" sizeHeight="161" sizeWidth="225" text="CREATE TABLE sample_tbl (&#xA;    col1 INT NOT NULL PRIMARY KEY,&#xA;    col2 NUMERIC,&#xA;    col3 NUMERIC(5),&#xA;    col4 NUMERIC(5,2),&#xA;    col5 NUMERIC(5,4)&#xA;);"/>
-  <note opaque="true" posX="352" posY="352" sizeHeight="129" sizeWidth="193" text="1;1;1;1.00;1.0000&#xA;20;20;20;20.10;2.1000&#xA;300;300;300;300.10;3.1000&#xA;">
-    <elementParameter field="TEXT" name="NOTE_FONT" value="SF Mono"/>
+  <note opaque="true" posX="192" posY="0" sizeHeight="129" sizeWidth="257" text="CREATE TABLE sample_tbl (&#xA;    col1 INT NOT NULL PRIMARY KEY,&#xA;    col2 NUMERIC,&#xA;    col3 NUMERIC(5),&#xA;    col4 NUMERIC(5,2),&#xA;    col5 NUMERIC(5,4)&#xA;);">
+    <elementParameter field="TEXT" name="FONT_SIZE" value="12"/>
   </note>
-  <note opaque="true" posX="544" posY="352" sizeHeight="129" sizeWidth="321" text="1*********========1=========****1=1.001.0000&#xA;20********========20========***2020.102.1000&#xA;300*******=======300========**300300.103.1000&#xA;">
+  <note opaque="true" posX="448" posY="224" sizeHeight="129" sizeWidth="385" text="1;123456789012345678;12345;123.45;1.2345&#xA;2;-123456789012345678;-12345;-123.45;-1.2345&#xA;3;3;3;3.00;3.0000&#xA;4;-4;-4;-4.00;-4.0000&#xA;5;1;12345;123.46;1.2346&#xA;">
     <elementParameter field="TEXT" name="NOTE_FONT" value="SF Mono"/>
+    <elementParameter field="TEXT" name="FONT_SIZE" value="12"/>
+  </note>
+  <note opaque="true" posX="448" posY="352" sizeHeight="129" sizeWidth="385" text="デフォルトサイズで出力　10,18,5,5,5&#xA;1*********12345678901234567812345123.451.2345&#xA;2*********-123456789012345678-12345-123.45-1.2345&#xA;3*********========3=========****3=3.003.0000&#xA;4*********========-4========***-4-4.00-4.0000&#xA;5*********========1=========12345123.461.2346&#xA;">
+    <elementParameter field="TEXT" name="NOTE_FONT" value="SF Mono"/>
+    <elementParameter field="TEXT" name="FONT_SIZE" value="12"/>
+  </note>
+  <note opaque="true" posX="448" posY="0" sizeHeight="161" sizeWidth="609" text="INSERT INTO sample_tbl VALUES(1, 123456789012345678, 12345, 123.45, 1.2345);&#xA;INSERT INTO sample_tbl VALUES(2, -123456789012345678, -12345, -123.45, -1.2345);&#xA;INSERT INTO sample_tbl VALUES(3, 3, 3, 3, 3);&#xA;INSERT INTO sample_tbl VALUES(4, -4, -4, -4, -4);&#xA;INSERT INTO sample_tbl VALUES(5, 0.5, 12345, 123.456, 1.23456);&#xA;">
+    <elementParameter field="TEXT" name="NOTE_FONT" value="SF Mono"/>
+    <elementParameter field="TEXT" name="FONT_SIZE" value="12"/>
+  </note>
+  <note opaque="true" posX="128" posY="480" sizeHeight="97" sizeWidth="161" text="有効桁数に対して&#xA;マイナスがある場合は＋１&#xA;小数点がある場合には＋１&#xA;すること。">
+    <elementParameter field="TEXT" name="FONT_SIZE" value="12"/>
+  </note>
+  <note opaque="true" posX="448" posY="480" sizeHeight="129" sizeWidth="385" text="サイズ補正して出力　10,19,6,7,7&#xA;1*********123456789012345678=*12345=123.45*1.2345&#xA;2*********-123456789012345678-12345-123.45-1.2345&#xA;3*********=========3=========*****3===3.00*3.0000&#xA;4*********========-4=========****-4==-4.00-4.0000&#xA;5*********=========1=========*12345=123.46*1.2346&#xA;">
+    <elementParameter field="TEXT" name="NOTE_FONT" value="SF Mono"/>
+    <elementParameter field="TEXT" name="FONT_SIZE" value="12"/>
+  </note>
+  <note opaque="true" posX="832" posY="352" sizeHeight="97" sizeWidth="193" text="padding文字は列交互に*と=&#xA;整列は左、中央、右、右、右">
+    <elementParameter field="TEXT" name="NOTE_FONT" value="SF Mono"/>
+    <elementParameter field="TEXT" name="FONT_SIZE" value="12"/>
   </note>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBConnection_1" show="false"/>
